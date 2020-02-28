@@ -21,32 +21,32 @@ public class Port
     this.doubleur = doubleur;
   }
 
-  public String get_infos()
+  public String getInfos()
   {
     return this.infos;
   }
 
-  public boolean get_branche()
+  public boolean getBranche()
   {
     return this.branche;
   }
 
-  public boolean get_prise()
+  public boolean getPrise()
   {
     return this.prise;
   }
 
-  public boolean get_doubleur()
+  public boolean getDoubleur()
   {
     return this.doubleur;
   }
 
-  public void set_infos(String infos)
+  public void setInfos(String infos)
   {
     this.infos = infos;
   }
 
-  public void set_branche()
+  public void setBranche()
   {
     if(this.prise)
     {
@@ -58,7 +58,7 @@ public class Port
     }
   }
 
-  public void set_prise()
+  public void setPrise()
   {
     if(this.prise)
     {
@@ -72,7 +72,7 @@ public class Port
     }
   }
   
-  public void set_doubleur()
+  public void setDoubleur()
   {
     if(this.prise)
     {
