@@ -4,6 +4,6 @@ class Main {
     System.out.println(portVide.getInfos());
     Baie baieVide=new Baie();
     Switch switchVide=new Switch();
-    System.out.println(switchVide)
+    System.out.println(switchVide);
   }
 }
