@@ -92,4 +92,33 @@ public class Port
       System.out.println("Il n'y a pas de prise, impossible de brancher.");
     }
   }
+
+  public String toString()
+  {
+    String s = "Ce port ";
+    if(this.prise)
+    {
+      if(this.branche)
+      {
+        if(this.doubleur)
+        {
+          s = s + "a un doubleur de branché.";
+        }
+        else
+        {
+          s = s + "a un cable de branché.";
+        }
+      }
+      else
+      {
+        s = s + "n'est pas branché.";
+      }
+    }
+    else
+    {
+      s = s + "n'as pas de prise.";
+    }
+    s = s + " Et voici les infos que nous avons : " + infos;
+    return s;
+  }
 }

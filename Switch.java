@@ -68,4 +68,9 @@ public class Switch
     return this.listePort.get(numero-1);
   }
 
+  public String toString()
+  {
+    return "Ce switch a "+Integer.toString(nbPorts)+" ports. Et voici les infos que nous avons : "+infos;
+  }
+
 }

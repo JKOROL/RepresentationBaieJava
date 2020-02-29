@@ -41,4 +41,9 @@ public class Baie
   {
     return this.listeSwitch.get(numero-1);
   }
+
+  public String toString()
+  {
+    return "Cette baie a "+Integer.toString(listeSwitch.size())+" switchs. Et voici les infos que nous avons : "+infos;
+  }
 }
