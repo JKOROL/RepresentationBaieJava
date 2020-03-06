@@ -46,7 +46,7 @@ public class Port
     this.infos = infos;
   }
 
-  public void setBranche()
+  public void setBranche() throws PriseException
   {
     if(this.prise)
     {
@@ -55,6 +55,7 @@ public class Port
     else
     {
       System.out.println("Il n'y a pas de prise, impossible de brancher.");
+      throw new PriseException();
     }
   }
 
@@ -72,7 +73,7 @@ public class Port
     }
   }
   
-  public void setDoubleur()
+  public void setDoubleur() throws PriseException
   {
     if(this.prise)
     {
@@ -90,6 +91,7 @@ public class Port
     else
     {
       System.out.println("Il n'y a pas de prise, impossible de brancher.");
+      throw new PriseException();
     }
   }
 
