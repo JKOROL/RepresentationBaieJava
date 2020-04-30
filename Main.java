@@ -16,7 +16,7 @@ class Main {
     }
     catch(PriseException e)
     {
-      System.out.println("problème doubleur");
+      System.out.println("Problème doubleur. Pas de prise.");
     }
     try
     {
@@ -26,11 +26,12 @@ class Main {
     }
     catch(PriseException e)
     {
-      System.out.println("problème branche");
+      System.out.println("Problème branche. Pas de prise.");
     }
     System.out.println(portVide);
     portVide.setPrise();
     System.out.println(portVide);
     System.out.println(baieVide);
+    Fenetre fenetre= new Fenetre();
   }
 }
