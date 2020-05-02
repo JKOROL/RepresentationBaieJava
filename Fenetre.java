@@ -35,10 +35,10 @@ class Fenetre extends JFrame
     int i =0;
     do
     {
-      panel.add(this.creerSwitch(Color.WHITE,12));
-      panel.add(this.creerSwitch(Color.BLUE,8));
-      panel.add(this.creerSwitch(Color.GREEN,16));
-      panel.add(this.creerSwitch(Color.RED,24));
+      panel.add(this.creerSwitch(Color.WHITE,2));
+      panel.add(this.creerSwitch(Color.BLUE,2));
+      panel.add(this.creerSwitch(Color.GREEN,3));
+      panel.add(this.creerSwitch(Color.RED,1));
       i++;
     }
     while(i<4);
@@ -61,7 +61,11 @@ class Fenetre extends JFrame
     JPanel panelPort=new JPanel();
     panel.add(port(couleur,nbPort),BorderLayout.CENTER);
     JPanel buttonPanel=new JPanel();
-    buttonPanel.add(new JButton("infos",this.info));
+    JButton bouton=new JButton(this.info);
+    bouton.setBorderPainted(false);
+    bouton.setFocusPainted(false);
+    bouton.setBackground(new Color(0,0,0,0));
+    buttonPanel.add(bouton);
     panel.add(buttonPanel,BorderLayout.EAST);
     return panel;
   }
