@@ -11,17 +11,19 @@ class Fenetre extends JFrame
   public Fenetre()
   {
     this.setTitle("Representation Baie Java");
-    this.setSize(800, 600);
+    this.setSize(400, 300);
     this.setLocationRelativeTo(null);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setVisible(true);
     Container cont= this.getContentPane();
     cont.setLayout(new BorderLayout());
     JPanel panel= new JPanel();
     cont.add(panel,BorderLayout.CENTER);
     JPanel menu=new JPanel();
     cont.add(menu,BorderLayout.NORTH);
-    menu.add(new JButton("Liste Baie"));
+    menu.setLayout(new GridLayout(1,0,4,5));
+    String liste[]={"Liste Baie","Baie 1","Baie 2","Baie 3"};
+    JComboBox listeBaie= new JComboBox(liste);
+    menu.add(listeBaie);
     menu.add(new JButton("Ajouter Baie"));
     menu.add(new JButton("Gerer Baie"));
     menu.add(new JButton("Ajouter Switch"));
@@ -31,7 +33,10 @@ class Fenetre extends JFrame
     panel.add(this.creerBaie(Color.BLUE));
     panel.add(this.creerBaie(Color.GREEN));
     panel.add(this.creerBaie(Color.RED));
+    panel.add(this.creerBaie(Color.BLUE));
     //panel.setBorder(new LineBorder(Color.WHITE,5));
+
+    this.setVisible(true);
   }
 
   public JPanel creerBaie(Color couleur)
@@ -39,11 +44,11 @@ class Fenetre extends JFrame
     JPanel panel=new JPanel();
     panel.setBackground(couleur);
     panel.setBorder(new LineBorder(Color.BLACK,3));
-    //panel.setLayout(new BorderLayout());
-    panel.add(new JPanel());
+    panel.setLayout(new BorderLayout());
+    panel.add(new JPanel(),BorderLayout.CENTER);
     JPanel buttonPanel=new JPanel();
     buttonPanel.add(new JButton("infos"));
-    panel.add(buttonPanel);
+    panel.add(buttonPanel,BorderLayout.EAST);
     return panel;
   }
 }
