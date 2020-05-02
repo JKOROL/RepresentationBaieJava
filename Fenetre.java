@@ -13,26 +13,37 @@ class Fenetre extends JFrame
     this.setTitle("Representation Baie Java");
     this.setSize(800, 600);
     this.setLocationRelativeTo(null);
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);             
+    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setVisible(true);
     Container cont= this.getContentPane();
     cont.setLayout(new BorderLayout());
     JPanel panel= new JPanel();
     cont.add(panel,BorderLayout.CENTER);
-    cont.add(new JPanel(),BorderLayout.WEST);
+    JPanel menu=new JPanel();
+    cont.add(menu,BorderLayout.NORTH);
+    menu.add(new JButton("Liste Baie"));
+    menu.add(new JButton("Ajouter Baie"));
+    menu.add(new JButton("Gerer Baie"));
+    menu.add(new JButton("Ajouter Switch"));
+    menu.add(new JButton("Gerer Switch"));
     panel.setLayout(new GridLayout(0,1,4,10));
-    panel.add(this.creerPanel(Color.WHITE));
-    panel.add(this.creerPanel(Color.BLUE));
-    panel.add(this.creerPanel(Color.GREEN));
-    panel.add(this.creerPanel(Color.RED));
+    panel.add(this.creerBaie(Color.WHITE));
+    panel.add(this.creerBaie(Color.BLUE));
+    panel.add(this.creerBaie(Color.GREEN));
+    panel.add(this.creerBaie(Color.RED));
     //panel.setBorder(new LineBorder(Color.WHITE,5));
   }
 
-  public JPanel creerPanel(Color couleur)
+  public JPanel creerBaie(Color couleur)
   {
     JPanel panel=new JPanel();
     panel.setBackground(couleur);
     panel.setBorder(new LineBorder(Color.BLACK,3));
+    //panel.setLayout(new BorderLayout());
+    panel.add(new JPanel());
+    JPanel buttonPanel=new JPanel();
+    buttonPanel.add(new JButton("infos"));
+    panel.add(buttonPanel);
     return panel;
   }
 }
