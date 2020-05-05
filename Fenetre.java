@@ -10,15 +10,25 @@ import javax.swing.tree.DefaultMutableTreeNode;
 class Fenetre extends JFrame
 {
   ImageIcon info;
+  ImageIcon ethernet;
+  ImageIcon ethernetAbsent;
+  ImageIcon ethernetBranche;
+  ImageIcon ethernetDoubleur;
+  Container cont;
+  JScrollPane scrollPanel;
   public Fenetre()
   {
     super();
     info = new ImageIcon("info.png");
+    ethernet = new ImageIcon("ethernet.png");
+    ethernetAbsent = new ImageIcon("ethernetAbsent.png");
+    ethernetBranche = new ImageIcon("ethernetBranche.png");
+    ethernetDoubleur = new ImageIcon("ethernetDoubleur.png");
     this.setTitle("Representation Baie Java");
     this.setSize(800, 600);
     this.setLocationRelativeTo(null);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    Container cont= this.getContentPane();
+    cont= this.getContentPane();
     cont.setLayout(new BorderLayout());
     JPanel panel= new JPanel();
     JPanel menu=new JPanel();
@@ -32,34 +42,33 @@ class Fenetre extends JFrame
     menu.add(new JButton("Ajouter Switch"));
     menu.add(new JButton("Gerer Switch"));
     panel.setLayout(new GridLayout(0,1,4,10));
-    int i =0;
-    do
-    {
-      panel.add(this.creerSwitch(Color.WHITE,2));
-      panel.add(this.creerSwitch(Color.BLUE,2));
-      panel.add(this.creerSwitch(Color.GREEN,3));
-      panel.add(this.creerSwitch(Color.RED,1));
-      i++;
-    }
-    while(i<4);
     JPanel arbrePanel=new JPanel();
     arbrePanel.add(Arbre());
     JScrollPane arbreScroll=new JScrollPane(arbrePanel);
-    JScrollPane scrollpanel=new JScrollPane(panel);
-    cont.add(scrollpanel,BorderLayout.CENTER);
+    scrollPanel=new JScrollPane(panel);
+    cont.add(scrollPanel,BorderLayout.CENTER);
     cont.add(arbreScroll,BorderLayout.WEST);
-    //panel.setBorder(new LineBorder(Color.WHITE,5));
+    int i =0;
+    do
+    {
+      panel.add(this.creerSwitch(8,1));
+      panel.add(this.creerSwitch(16,1));
+      panel.add(this.creerSwitch(16,2));
+      panel.add(this.creerSwitch(32,4));
+      i++;
+    }
+    while(i<4);
 
     this.setVisible(true);
   }
 
-  public JPanel creerSwitch(Color couleur,int nbPort)
+  public JPanel creerSwitch(int nbPort,int nbLigne)
   {
     JPanel panel=new JPanel();
     panel.setBorder(new LineBorder(Color.BLACK,3));
     panel.setLayout(new BorderLayout());
     JPanel panelPort=new JPanel();
-    panel.add(port(couleur,nbPort),BorderLayout.CENTER);
+    panel.add(port(nbPort,nbLigne),BorderLayout.CENTER);
     JPanel buttonPanel=new JPanel();
     JButton bouton=new JButton(this.info);
     bouton.setBorderPainted(false);
@@ -67,24 +76,31 @@ class Fenetre extends JFrame
     bouton.setBackground(new Color(0,0,0,0));
     buttonPanel.add(bouton);
     panel.add(buttonPanel,BorderLayout.EAST);
+    Double largeur = this.scrollPanel.getSize().getWidth();
+    Double hauteur = this.scrollPanel.getSize().getHeight()*0.2;
+    panel.setMaximumSize(new Dimension(hauteur.intValue(),largeur.intValue()));
     return panel;
   }
 
-  public JPanel port(Color couleur,int nbPort)
+  public JPanel port(int nbPort,int nbLigne)
   {
     JPanel port=new JPanel();
-    port.setLayout(new GridLayout(1,0,4,0));
-    port.setBackground(couleur);
+    port.setLayout(new GridLayout(nbLigne,0,4,0));
+    Port portPort=new Port();
     for(int i=0;i<nbPort;i++)
     {
-      JButton button =new JButton("#"+(i+1));
+      BoutonPort button=new BoutonPort();
       if(i%3==0)
       {
-        button.setBackground(Color.RED);
+        button.setIcon(this.ethernet);
       }
       else if(i%2==0)
       {
-        button.setBackground(Color.GREEN);
+        button.setIcon(this.ethernetAbsent);
+      }
+      else
+      {
+        button.setIcon(this.ethernetBranche);
       }
       port.add(button);
     }
@@ -112,6 +128,12 @@ class Fenetre extends JFrame
     //Nous créons, avec notre hiérarchie, un arbre
     JTree arbre = new JTree(racine);
     return arbre;
+  }
+
+  public void getInfos()
+  {
+    System.out.println(cont.getSize());
+    System.out.println(scrollPanel.getSize());
   }
 }
 

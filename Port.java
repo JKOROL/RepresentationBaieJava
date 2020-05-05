@@ -4,6 +4,7 @@ public class Port
   private boolean branche;
   private boolean prise;
   private boolean doubleur;
+  private String nom;
 
   public Port()
   {
@@ -11,14 +12,16 @@ public class Port
     this.branche = false;
     this.prise = true;
     this.doubleur = false;
+    this.nom="Pas de nom";
   }
 
-  public Port(String infos, boolean branche, boolean prise, boolean doubleur)
+  public Port(String infos, boolean branche, boolean prise, boolean doubleur, String nom)
   {
     this.infos = infos;
     this.branche = branche;
     this.prise = prise;
     this.doubleur = doubleur;
+    this.nom=nom;
   }
 
   public String getInfos()
@@ -39,6 +42,16 @@ public class Port
   public boolean getDoubleur()
   {
     return this.doubleur;
+  }
+
+  public String getNom()
+  {
+    return this.nom;
+  }
+
+  public void setNom(String nom)
+  {
+    this.nom=nom;
   }
 
   public void setInfos(String infos)
