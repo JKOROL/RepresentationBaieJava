@@ -20,10 +20,12 @@ public class Fenetre extends JFrame
   Container cont;
   JScrollPane scrollPanel;
   JPanel menu;
+  public JPanel panel;
   public JPanel switch1;
   public JPanel switch2;
   public JPanel switch3;
   public JPanel switch4;
+  public GridBagConstraints gbc;
 
   public Fenetre()
   {
@@ -39,7 +41,7 @@ public class Fenetre extends JFrame
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     cont= this.getContentPane();
     cont.setLayout(new BorderLayout());
-    JPanel panel= new JPanel();
+    panel= new JPanel();
     JPanel menu=new JPanel();
     cont.add(menu,BorderLayout.NORTH);
     menu.setLayout(new GridLayout(1,0,4,5));
@@ -48,10 +50,10 @@ public class Fenetre extends JFrame
     menu.add(listeBaie);
     menu.add(new JButton("Ajouter Baie"));
     menu.add(new JButton("Gerer Baie"));
-    menu.add(new JButton("Ajouter Switch"));
+    menu.add(new BoutonAjSwitch());
     menu.add(new JButton("Gerer Switch"));
     panel.setLayout(new GridBagLayout());
-    GridBagConstraints gbc = new GridBagConstraints();
+    gbc = new GridBagConstraints();
     JPanel arbrePanel=new JPanel();
     arbrePanel.add(Arbre());
     JScrollPane arbreScroll=new JScrollPane(arbrePanel);
@@ -59,7 +61,7 @@ public class Fenetre extends JFrame
     cont.add(scrollPanel,BorderLayout.CENTER);
     cont.add(arbreScroll,BorderLayout.WEST);
     switch1=this.creerSwitch(8,1);
-    switch2=this.creerSwitch(16,1);
+    switch2=this.creerSwitch(24,3);
     switch3=this.creerSwitch(16,2);
     switch4=this.creerSwitch(32,4);
     gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -67,10 +69,8 @@ public class Fenetre extends JFrame
     gbc.gridy = 0;
     panel.add(switch1,gbc);
     gbc.gridy = 1;
-    gbc.gridwidth=2;
     panel.add(switch2,gbc);
     gbc.gridy = 2;
-    gbc.gridwidth=1;
     panel.add(switch3,gbc);
     gbc.gridy = 3;
     panel.add(switch4,gbc);
@@ -82,16 +82,14 @@ public class Fenetre extends JFrame
     JPanel panel=new JPanel();
     panel.setBorder(new LineBorder(Color.BLACK,3));
     panel.setLayout(new BorderLayout());
-    JPanel panelPort=new JPanel();
-    panelPort.add(port(nbPort,nbLigne));
-    panel.add(panelPort,BorderLayout.CENTER);
+    panel.add(port(nbPort,nbLigne),BorderLayout.CENTER);
     JPanel buttonPanel=new JPanel();
     JButton bouton=new JButton(this.info);
     bouton.setBorderPainted(false);
     bouton.setFocusPainted(false);
     bouton.setBackground(new Color(0,0,0,0));
     buttonPanel.add(bouton);
-    panel.add(buttonPanel,BorderLayout.EAST);
+    panel.add(bouton,BorderLayout.EAST);
     return panel;
   }
 
@@ -115,6 +113,9 @@ public class Fenetre extends JFrame
       {
         button.setIcon(this.ethernetBranche);
       }
+      button.setBorderPainted(false);
+      button.setFocusPainted(false);
+      button.setBackground(new Color(0,0,0,0));
       port.add(button);
     }
 
@@ -123,12 +124,14 @@ public class Fenetre extends JFrame
 
   public JTree Arbre(){
     DefaultMutableTreeNode racine = new DefaultMutableTreeNode("Home");
+    racine.setBackground(new Color(0,0,0,0));
 
-    for(int i = 1; i < 3; i++){
+    for(int i = 1; i < 3; i++)
+    {
       DefaultMutableTreeNode baie = new DefaultMutableTreeNode("Baie n°"+i);
 
-
-        for(int j = 1; j < 5; j++){
+        for(int j = 1; j < 5; j++)
+        {
           DefaultMutableTreeNode switcH = new DefaultMutableTreeNode("Switch n°" + j);
           for(int k = 1; k < 5; k++)
             switcH.add(new DefaultMutableTreeNode("Port n°" + k));
@@ -137,7 +140,13 @@ public class Fenetre extends JFrame
       racine.add(baie);
     }
     JTree arbre = new JTree(racine);
+    arbre.setBackground(new Color(0,0,0,0));
     return arbre;
+  }
+
+  public String toString()
+  {
+    return "Je suis la fênetre.";
   }
 
 }

@@ -6,10 +6,19 @@ import java.awt.event.MouseListener;
 
 public class BoutonAjSwitch extends JButton implements MouseListener
 {
+
+  public BoutonAjSwitch()
+  {
+    super("Ajouter Switch");
+    this.addMouseListener(this);
+  }
   //Méthode appelée lors du clic de souris
   public void mouseClicked(MouseEvent event) 
   {
-    
+    Fenetre fenetre=(Fenetre)this.getTopLevelAncestor();
+    fenetre.gbc.gridy++;
+    fenetre.panel.add(fenetre.creerSwitch(8,1),fenetre.gbc);
+    fenetre.panel.revalidate();
   }
 
   //Méthode appelée lors du survol de la souris
