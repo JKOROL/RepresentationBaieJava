@@ -1,3 +1,5 @@
+package ihm;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
@@ -6,8 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.LineBorder;
 import javax.swing.tree.DefaultMutableTreeNode;
+import data.Port;
 
-class Fenetre extends JFrame
+public class Fenetre extends JFrame
 {
   ImageIcon info;
   ImageIcon ethernet;
@@ -16,14 +19,20 @@ class Fenetre extends JFrame
   ImageIcon ethernetDoubleur;
   Container cont;
   JScrollPane scrollPanel;
+  JPanel menu;
+  public JPanel switch1;
+  public JPanel switch2;
+  public JPanel switch3;
+  public JPanel switch4;
+
   public Fenetre()
   {
     super();
-    info = new ImageIcon("info.png");
-    ethernet = new ImageIcon("ethernet.png");
-    ethernetAbsent = new ImageIcon("ethernetAbsent.png");
-    ethernetBranche = new ImageIcon("ethernetBranche.png");
-    ethernetDoubleur = new ImageIcon("ethernetDoubleur.png");
+    info = new ImageIcon("icon/info.png");
+    ethernet = new ImageIcon("icon/ethernet.png");
+    ethernetAbsent = new ImageIcon("icon/ethernetAbsent.png");
+    ethernetBranche = new ImageIcon("icon/ethernetBranche.png");
+    ethernetDoubleur = new ImageIcon("icon/ethernetDoubleur.png");
     this.setTitle("Representation Baie Java");
     this.setSize(800, 600);
     this.setLocationRelativeTo(null);
@@ -41,24 +50,30 @@ class Fenetre extends JFrame
     menu.add(new JButton("Gerer Baie"));
     menu.add(new JButton("Ajouter Switch"));
     menu.add(new JButton("Gerer Switch"));
-    panel.setLayout(new GridLayout(0,1,4,10));
+    panel.setLayout(new GridBagLayout());
+    GridBagConstraints gbc = new GridBagConstraints();
     JPanel arbrePanel=new JPanel();
     arbrePanel.add(Arbre());
     JScrollPane arbreScroll=new JScrollPane(arbrePanel);
     scrollPanel=new JScrollPane(panel);
     cont.add(scrollPanel,BorderLayout.CENTER);
     cont.add(arbreScroll,BorderLayout.WEST);
-    int i =0;
-    do
-    {
-      panel.add(this.creerSwitch(8,1));
-      panel.add(this.creerSwitch(16,1));
-      panel.add(this.creerSwitch(16,2));
-      panel.add(this.creerSwitch(32,4));
-      i++;
-    }
-    while(i<4);
-
+    switch1=this.creerSwitch(8,1);
+    switch2=this.creerSwitch(16,1);
+    switch3=this.creerSwitch(16,2);
+    switch4=this.creerSwitch(32,4);
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.gridx = 1;
+    gbc.gridy = 0;
+    panel.add(switch1,gbc);
+    gbc.gridy = 1;
+    gbc.gridwidth=2;
+    panel.add(switch2,gbc);
+    gbc.gridy = 2;
+    gbc.gridwidth=1;
+    panel.add(switch3,gbc);
+    gbc.gridy = 3;
+    panel.add(switch4,gbc);
     this.setVisible(true);
   }
 
@@ -68,7 +83,8 @@ class Fenetre extends JFrame
     panel.setBorder(new LineBorder(Color.BLACK,3));
     panel.setLayout(new BorderLayout());
     JPanel panelPort=new JPanel();
-    panel.add(port(nbPort,nbLigne),BorderLayout.CENTER);
+    panelPort.add(port(nbPort,nbLigne));
+    panel.add(panelPort,BorderLayout.CENTER);
     JPanel buttonPanel=new JPanel();
     JButton bouton=new JButton(this.info);
     bouton.setBorderPainted(false);
@@ -76,9 +92,6 @@ class Fenetre extends JFrame
     bouton.setBackground(new Color(0,0,0,0));
     buttonPanel.add(bouton);
     panel.add(buttonPanel,BorderLayout.EAST);
-    Double largeur = this.scrollPanel.getSize().getWidth();
-    Double hauteur = this.scrollPanel.getSize().getHeight()*0.2;
-    panel.setMaximumSize(new Dimension(hauteur.intValue(),largeur.intValue()));
     return panel;
   }
 
@@ -117,23 +130,15 @@ class Fenetre extends JFrame
 
         for(int j = 1; j < 5; j++){
           DefaultMutableTreeNode switcH = new DefaultMutableTreeNode("Switch n°" + j);
-          //Cette fois, on ajoute les feuilles
           for(int k = 1; k < 5; k++)
             switcH.add(new DefaultMutableTreeNode("Port n°" + k));
           baie.add(switcH);
         }
-      //On ajoute la feuille ou la branche à la racine
       racine.add(baie);
     }
-    //Nous créons, avec notre hiérarchie, un arbre
     JTree arbre = new JTree(racine);
     return arbre;
   }
 
-  public void getInfos()
-  {
-    System.out.println(cont.getSize());
-    System.out.println(scrollPanel.getSize());
-  }
 }
 

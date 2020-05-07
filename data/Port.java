@@ -1,3 +1,7 @@
+package data;
+
+import erreur.PriseException;
+
 public class Port
 {
   private String infos;
