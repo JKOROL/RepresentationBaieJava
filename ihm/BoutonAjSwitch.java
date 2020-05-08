@@ -15,10 +15,7 @@ public class BoutonAjSwitch extends JButton implements MouseListener
   //Méthode appelée lors du clic de souris
   public void mouseClicked(MouseEvent event) 
   {
-    Fenetre fenetre=(Fenetre)this.getTopLevelAncestor();
-    fenetre.gbc.gridy++;
-    fenetre.panel.add(fenetre.creerSwitch(8,1),fenetre.gbc);
-    fenetre.panel.revalidate();
+    new AjoutSwitch((Fenetre)this.getTopLevelAncestor());
   }
 
   //Méthode appelée lors du survol de la souris

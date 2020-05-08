@@ -124,7 +124,6 @@ public class Fenetre extends JFrame
 
   public JTree Arbre(){
     DefaultMutableTreeNode racine = new DefaultMutableTreeNode("Home");
-    racine.setBackground(new Color(0,0,0,0));
 
     for(int i = 1; i < 3; i++)
     {
@@ -141,6 +140,7 @@ public class Fenetre extends JFrame
     }
     JTree arbre = new JTree(racine);
     arbre.setBackground(new Color(0,0,0,0));
+    arbre.setRootVisible(false);
     return arbre;
   }
 
@@ -150,4 +150,3 @@ public class Fenetre extends JFrame
   }
 
 }
-
