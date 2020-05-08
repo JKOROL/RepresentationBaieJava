@@ -97,7 +97,6 @@ public class Fenetre extends JFrame
   {
     JPanel port=new JPanel();
     port.setLayout(new GridLayout(nbLigne,0,4,0));
-    Port portPort=new Port();
     for(int i=0;i<nbPort;i++)
     {
       BoutonPort button=new BoutonPort();

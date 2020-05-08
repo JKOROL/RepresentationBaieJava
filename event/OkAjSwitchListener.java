@@ -17,8 +17,18 @@ public class OkAjSwitchListener implements MouseListener
     {
       Fenetre fenetre=this.dial.getFenetre();
       fenetre.gbc.gridy++;
+      double ratio=dial.getNbPorts().doubleValue()/dial.getNbLigne().doubleValue();
+      if(ratio>8.0)
+      {
+        Double r=ratio/8;
+        fenetre.gbc.gridwidth=r.intValue()+1;
+      }
+      else
+      {
+        fenetre.gbc.gridwidth=1;
+      }
     
-      fenetre.panel.add(fenetre.creerSwitch(8,1),fenetre.gbc);
+      fenetre.panel.add(fenetre.creerSwitch(dial.getNbPorts(),dial.getNbLigne()),fenetre.gbc);
       fenetre.panel.revalidate();
       dial.dispose();
     }

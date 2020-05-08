@@ -9,18 +9,23 @@ import java.awt.event.*;
 import event.AnnulerListener;
 import event.OkAjSwitchListener;
 import java.awt.BorderLayout;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import java.awt.GridLayout;
 
-public class AjoutSwitch extends JDialog implements MouseListener
+public class AjoutSwitch extends JDialog
 {
   private Fenetre fenetre;
+  private JTextField infosField;
+  private JTextField portsField;
+  private JTextField ligneField;
 
   public AjoutSwitch(Fenetre fenetre)
   {
     super(fenetre,"Ajouter un switch",true);
-    this.setSize(200, 80);
+    this.setSize(400, 300);
     this.fenetre=fenetre;
     this.setLocationRelativeTo(null);
-    
     this.setResizable(false);
     init();
     this.setVisible(true);
@@ -30,6 +35,12 @@ public class AjoutSwitch extends JDialog implements MouseListener
   {
     Container cont =this.getContentPane();
     cont.setLayout(new BorderLayout());
+    cont.add(panelBouton(),BorderLayout.SOUTH);
+    cont.add(panelData(),BorderLayout.CENTER);
+  }
+
+  public JPanel panelBouton()
+  {
     JPanel panel=new JPanel();
     JButton okAjSwitch=new JButton("OK");
     okAjSwitch.addMouseListener(new OkAjSwitchListener(this));
@@ -37,39 +48,59 @@ public class AjoutSwitch extends JDialog implements MouseListener
     annuler.addMouseListener(new AnnulerListener(this));
     panel.add(okAjSwitch);
     panel.add(annuler);
-    cont.add(panel,BorderLayout.SOUTH);
-    panel.revalidate();
-  }
-    public void mouseClicked(MouseEvent event) 
-    {
-      System.out.println("ça marche");
-    }
-    public void mouseEntered(MouseEvent event) 
-  {
-
+    return panel;
   }
 
-  //Méthode appelée lorsque la souris sort de la zone du bouton
-  public void mouseExited(MouseEvent event) 
+  public JPanel panelData()
   {
-
+    JPanel panel=new JPanel();
+    panel.setLayout(new GridLayout(0,1));
+    panel.add(panelPorts());
+    panel.add(panelLigne());
+    panel.add(panelInfos());
+    return panel;
   }
 
-  //Méthode appelée lorsque l'on presse le bouton gauche de la souris
-  public void mousePressed(MouseEvent event) 
+  public JPanel panelPorts()
   {
-
+    JPanel panel=new JPanel();
+    panel.add(new JLabel("Nombre de ports : "));
+    portsField=new JTextField(4);
+    panel.add(portsField);
+    return panel;
   }
 
-  //Méthode appelée lorsque l'on relâche le clic de souris
-  public void mouseReleased(MouseEvent event) 
+  public JPanel panelLigne()
   {
+    JPanel panel=new JPanel();
+    panel.add(new JLabel("Nombre de ligne : "));
+    ligneField=new JTextField(4);
+    panel.add(ligneField);
+    return panel;
+  }
 
+  public JPanel panelInfos()
+  {
+    JPanel panel=new JPanel();
+    panel.add(new JLabel("Infos : "));
+    infosField=new JTextField(25);
+    panel.add(infosField);
+    return panel;
   }
   
   public Fenetre getFenetre()
   {
     return this.fenetre;
+  }
+
+  public Integer getNbPorts()
+  {
+    return new Integer(Integer.parseInt(portsField.getText()));
+  }
+
+  public Integer getNbLigne()
+  {
+    return new Integer(Integer.parseInt(ligneField.getText()));
   }
 
 }
