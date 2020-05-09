@@ -9,6 +9,7 @@ import java.awt.*;
 import javax.swing.border.LineBorder;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 
 public class Fenetre extends JFrame
 {
@@ -18,6 +19,7 @@ public class Fenetre extends JFrame
   JPanel menu;
   Baie baieActuelle;
   public GridBagConstraints gbc;
+  private DefaultComboBoxModel<Baie> listeChoix;
 
   public Fenetre()
   {
@@ -49,11 +51,15 @@ public class Fenetre extends JFrame
 
   public void initMenu()
   {
-    String liste[]={"Liste Baie","Baie 1","Baie 2","Baie 3"};
+    JComboBox choixBaie= new JComboBox();
+    listeChoix=(DefaultComboBoxModel<Baie>)choixBaie.getModel();
+    for(Baie b:listeBaie)
+    {
+      listeChoix.addElement(b);
+    }
     menu=new JPanel();
-    JComboBox listeBaie= new JComboBox(liste);
     menu.setLayout(new GridLayout(1,0,4,5));
-    menu.add(listeBaie);
+    menu.add(choixBaie);
     menu.add(new BoutonAjBaie());
     menu.add(new JButton("Gerer Baie"));
     menu.add(new BoutonAjSwitch());
@@ -96,6 +102,11 @@ public class Fenetre extends JFrame
     arbre.setBackground(new Color(0,0,0,0));
     arbre.setRootVisible(false);
     return arbre;
+  }
+
+  public DefaultComboBoxModel<Baie> getListeChoix()
+  {
+    return this.listeChoix;
   }
 
   public String toString()

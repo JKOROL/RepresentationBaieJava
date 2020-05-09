@@ -15,28 +15,30 @@ public class AjBaieListener implements MouseListener
     this.bouton=bouton;
   }
 
-  public void mouseClicked(MouseEvent event) 
+  public void mouseClicked(MouseEvent event)
   {
     Fenetre f=(Fenetre)bouton.getTopLevelAncestor();
-    f.changeBaie(new Baie());
+    Baie b=new Baie();
+    f.changeBaie(b);
+    f.getListeChoix().addElement(b);
   }
 
-  public void mouseEntered(MouseEvent event) 
+  public void mouseEntered(MouseEvent event)
   {
 
   }
 
-  public void mouseExited(MouseEvent event) 
+  public void mouseExited(MouseEvent event)
   {
 
   }
 
-  public void mousePressed(MouseEvent event) 
+  public void mousePressed(MouseEvent event)
   {
 
   }
 
-  public void mouseReleased(MouseEvent event) 
+  public void mouseReleased(MouseEvent event)
   {
 
   }
