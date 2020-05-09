@@ -4,6 +4,7 @@ import javax.swing.JDialog;
 import java.awt.event.*;
 import ihm.AjoutSwitch;
 import ihm.Fenetre;
+import ihm.Switch;
 
 public class OkAjSwitchListener implements MouseListener
 {
@@ -28,7 +29,7 @@ public class OkAjSwitchListener implements MouseListener
         fenetre.gbc.gridwidth=1;
       }
     
-      fenetre.panel.add(fenetre.creerSwitch(dial.getNbPorts(),dial.getNbLigne()),fenetre.gbc);
+      fenetre.panel.add(new Switch(dial.getNbPorts(),dial.getNbLigne()),fenetre.gbc);
       fenetre.panel.revalidate();
       dial.dispose();
     }

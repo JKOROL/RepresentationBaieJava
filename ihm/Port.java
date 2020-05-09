@@ -1,8 +1,15 @@
-package data;
+package ihm;
 
 import erreur.PriseException;
+import javax.swing.JButton;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import event.PortListener;
+import java.awt.Color;
 
-public class Port
+public class Port extends JButton
 {
   private String infos;
   private boolean branche;
@@ -12,20 +19,32 @@ public class Port
 
   public Port()
   {
+    super();
     this.infos = "Pas d'infos";
     this.branche = false;
     this.prise = true;
     this.doubleur = false;
     this.nom="Pas de nom";
+    this.majIcone();
+    this.addMouseListener(new PortListener(this));
+    this.setBorderPainted(false);
+    this.setFocusPainted(false);
+    this.setBackground(new Color(0,0,0,0));
   }
 
   public Port(String infos, boolean branche, boolean prise, boolean doubleur, String nom)
   {
+    super();
     this.infos = infos;
     this.branche = branche;
     this.prise = prise;
     this.doubleur = doubleur;
     this.nom=nom;
+    this.majIcone();
+    this.addMouseListener(new PortListener(this));
+    this.setBorderPainted(false);
+    this.setFocusPainted(false);
+    this.setBackground(new Color(0,0,0,0));
   }
 
   public String getInfos()
@@ -109,6 +128,32 @@ public class Port
     {
       System.out.println("Il n'y a pas de prise, impossible de brancher.");
       throw new PriseException();
+    }
+  }
+
+  public void majIcone()
+  {
+    if(this.prise)
+    {
+      if(this.branche)
+      {
+        if(this.doubleur)
+        {
+          this.setIcon(new ImageIcon("icon/ethernetDoubleur.png"));
+        }
+        else
+        {
+          this.setIcon(new ImageIcon("icon/ethernetBranche.png"));
+        }
+      }
+      else
+      {
+        this.setIcon(new ImageIcon("icon/ethernet.png"));
+      }
+    }
+    else
+    {
+      this.setIcon(new ImageIcon("icon/ethernetAbsent.png"));
     }
   }
 

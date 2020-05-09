@@ -12,7 +12,6 @@ import data.Port;
 
 public class Fenetre extends JFrame
 {
-  ImageIcon info;
   ImageIcon ethernet;
   ImageIcon ethernetAbsent;
   ImageIcon ethernetBranche;
@@ -21,20 +20,11 @@ public class Fenetre extends JFrame
   JScrollPane scrollPanel;
   JPanel menu;
   public JPanel panel;
-  public JPanel switch1;
-  public JPanel switch2;
-  public JPanel switch3;
-  public JPanel switch4;
   public GridBagConstraints gbc;
 
   public Fenetre()
   {
     super();
-    info = new ImageIcon("icon/info.png");
-    ethernet = new ImageIcon("icon/ethernet.png");
-    ethernetAbsent = new ImageIcon("icon/ethernetAbsent.png");
-    ethernetBranche = new ImageIcon("icon/ethernetBranche.png");
-    ethernetDoubleur = new ImageIcon("icon/ethernetDoubleur.png");
     this.setTitle("Representation Baie Java");
     this.setSize(800, 600);
     this.setLocationRelativeTo(null);
@@ -60,66 +50,14 @@ public class Fenetre extends JFrame
     scrollPanel=new JScrollPane(panel);
     cont.add(scrollPanel,BorderLayout.CENTER);
     cont.add(arbreScroll,BorderLayout.WEST);
-    switch1=this.creerSwitch(8,1);
-    switch2=this.creerSwitch(24,3);
-    switch3=this.creerSwitch(16,2);
-    switch4=this.creerSwitch(32,4);
     gbc.fill = GridBagConstraints.HORIZONTAL;
     gbc.gridx = 1;
     gbc.gridy = 0;
-    panel.add(switch1,gbc);
-    gbc.gridy = 1;
-    panel.add(switch2,gbc);
-    gbc.gridy = 2;
-    panel.add(switch3,gbc);
-    gbc.gridy = 3;
-    panel.add(switch4,gbc);
     this.setVisible(true);
   }
 
-  public JPanel creerSwitch(int nbPort,int nbLigne)
-  {
-    JPanel panel=new JPanel();
-    panel.setBorder(new LineBorder(Color.BLACK,3));
-    panel.setLayout(new BorderLayout());
-    panel.add(port(nbPort,nbLigne),BorderLayout.CENTER);
-    JPanel buttonPanel=new JPanel();
-    JButton bouton=new JButton(this.info);
-    bouton.setBorderPainted(false);
-    bouton.setFocusPainted(false);
-    bouton.setBackground(new Color(0,0,0,0));
-    buttonPanel.add(bouton);
-    panel.add(bouton,BorderLayout.EAST);
-    return panel;
-  }
 
-  public JPanel port(int nbPort,int nbLigne)
-  {
-    JPanel port=new JPanel();
-    port.setLayout(new GridLayout(nbLigne,0,4,0));
-    for(int i=0;i<nbPort;i++)
-    {
-      BoutonPort button=new BoutonPort();
-      if(i%3==0)
-      {
-        button.setIcon(this.ethernet);
-      }
-      else if(i%2==0)
-      {
-        button.setIcon(this.ethernetAbsent);
-      }
-      else
-      {
-        button.setIcon(this.ethernetBranche);
-      }
-      button.setBorderPainted(false);
-      button.setFocusPainted(false);
-      button.setBackground(new Color(0,0,0,0));
-      port.add(button);
-    }
-
-    return port;
-  }
+  
 
   public JTree Arbre(){
     DefaultMutableTreeNode racine = new DefaultMutableTreeNode("Home");

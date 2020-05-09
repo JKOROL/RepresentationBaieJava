@@ -12,6 +12,7 @@ import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
+import java.lang.Exception;
 
 public class AjoutSwitch extends JDialog
 {
@@ -95,12 +96,26 @@ public class AjoutSwitch extends JDialog
 
   public Integer getNbPorts()
   {
-    return new Integer(Integer.parseInt(portsField.getText()));
+    try
+    {
+      return new Integer(Integer.parseInt(portsField.getText()));
+    }
+    catch(Exception e)
+    {
+      return 8;
+    }
   }
 
   public Integer getNbLigne()
   {
-    return new Integer(Integer.parseInt(ligneField.getText()));
+    try
+    {
+      return new Integer(Integer.parseInt(ligneField.getText()));
+    }
+    catch(Exception e)
+    {
+      return 1;
+    }
   }
 
 }
