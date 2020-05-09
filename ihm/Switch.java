@@ -98,14 +98,14 @@ public class Switch extends JPanel
     this.listePort = listePort;
   }
 
-  public int getNbPorts()
+  public Integer getNbPorts()
   {
-    return this.nbPorts;
+    return new Integer(this.nbPorts);
   }
 
-  public int getNbLignes()
+  public Integer getNbLignes()
   {
-    return this.nbLignes;
+    return new Integer(this.nbLignes);
   }
 
   public ArrayList<Port> getListePort()

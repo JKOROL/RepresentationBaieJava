@@ -8,18 +8,15 @@ import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.LineBorder;
 import javax.swing.tree.DefaultMutableTreeNode;
-import data.Port;
+import java.util.ArrayList;
 
 public class Fenetre extends JFrame
 {
-  ImageIcon ethernet;
-  ImageIcon ethernetAbsent;
-  ImageIcon ethernetBranche;
-  ImageIcon ethernetDoubleur;
+  ArrayList<Baie> listeBaie;
   Container cont;
   JScrollPane scrollPanel;
   JPanel menu;
-  public JPanel panel;
+  Baie baieActuelle;
   public GridBagConstraints gbc;
 
   public Fenetre()
@@ -31,33 +28,53 @@ public class Fenetre extends JFrame
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     cont= this.getContentPane();
     cont.setLayout(new BorderLayout());
-    panel= new JPanel();
-    JPanel menu=new JPanel();
-    cont.add(menu,BorderLayout.NORTH);
-    menu.setLayout(new GridLayout(1,0,4,5));
-    String liste[]={"Liste Baie","Baie 1","Baie 2","Baie 3"};
-    JComboBox listeBaie= new JComboBox(liste);
-    menu.add(listeBaie);
-    menu.add(new JButton("Ajouter Baie"));
-    menu.add(new JButton("Gerer Baie"));
-    menu.add(new BoutonAjSwitch());
-    menu.add(new JButton("Gerer Switch"));
-    panel.setLayout(new GridBagLayout());
-    gbc = new GridBagConstraints();
+    //
+    listeBaie=new ArrayList<Baie>();
+    baieActuelle= new Baie();
+    listeBaie.add(baieActuelle);
+    //
+    initMenu();
+    //
     JPanel arbrePanel=new JPanel();
     arbrePanel.add(Arbre());
     JScrollPane arbreScroll=new JScrollPane(arbrePanel);
-    scrollPanel=new JScrollPane(panel);
+    //
+    scrollPanel=new JScrollPane(baieActuelle);
+    //
+    cont.add(menu,BorderLayout.NORTH);
     cont.add(scrollPanel,BorderLayout.CENTER);
     cont.add(arbreScroll,BorderLayout.WEST);
-    gbc.fill = GridBagConstraints.HORIZONTAL;
-    gbc.gridx = 1;
-    gbc.gridy = 0;
     this.setVisible(true);
   }
 
+  public void initMenu()
+  {
+    String liste[]={"Liste Baie","Baie 1","Baie 2","Baie 3"};
+    menu=new JPanel();
+    JComboBox listeBaie= new JComboBox(liste);
+    menu.setLayout(new GridLayout(1,0,4,5));
+    menu.add(listeBaie);
+    menu.add(new BoutonAjBaie());
+    menu.add(new JButton("Gerer Baie"));
+    menu.add(new BoutonAjSwitch());
+    menu.add(new JButton("Gerer Switch"));
+  }
 
-  
+  public Baie getBaie()
+  {
+    return baieActuelle;
+  }
+
+  public void changeBaie(Baie nouvelleBaie)
+  {
+    this.baieActuelle=nouvelleBaie;
+    scrollPanel.setViewportView(baieActuelle);
+  }
+
+  public void ajouterBaie(Baie nouvelleBaie)
+  {
+    this.listeBaie.add(nouvelleBaie);
+  }
 
   public JTree Arbre(){
     DefaultMutableTreeNode racine = new DefaultMutableTreeNode("Home");

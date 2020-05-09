@@ -17,20 +17,21 @@ public class OkAjSwitchListener implements MouseListener
   public void mouseClicked(MouseEvent event) 
     {
       Fenetre fenetre=this.dial.getFenetre();
-      fenetre.gbc.gridy++;
+      fenetre.getBaie().getGbc().gridy++;
       double ratio=dial.getNbPorts().doubleValue()/dial.getNbLigne().doubleValue();
       if(ratio>8.0)
       {
         Double r=ratio/8;
-        fenetre.gbc.gridwidth=r.intValue()+1;
+        fenetre.getBaie().getGbc().gridwidth=r.intValue()+1;
       }
       else
       {
-        fenetre.gbc.gridwidth=1;
+        fenetre.getBaie().getGbc().gridwidth=1;
       }
-    
-      fenetre.panel.add(new Switch(dial.getNbPorts(),dial.getNbLigne()),fenetre.gbc);
-      fenetre.panel.revalidate();
+      Switch s=new Switch(dial.getNbPorts(),dial.getNbLigne());
+      fenetre.getBaie().getListeSwitch().add(s);
+      fenetre.getBaie().add(s,fenetre.getBaie().getGbc());
+      fenetre.getBaie().revalidate();
       dial.dispose();
     }
     public void mouseEntered(MouseEvent event) 
