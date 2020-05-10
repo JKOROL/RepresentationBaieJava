@@ -25,6 +25,20 @@ public class Baie extends JPanel
     this.nom = "Pas de nom";
   }
 
+  public Baie(String nom,String infos)
+  {
+    super();
+    this.listeSwitch = new ArrayList<Switch>();
+    this.infos = infos;
+    this.setLayout(new GridBagLayout());
+    gbc = new GridBagConstraints();
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.gridx = 1;
+    gbc.gridy = 0;
+    this.nom = nom;
+    initSwitch();
+  }
+
   public Baie(ArrayList<Switch> listeSwitch,String infos,String nom)
   {
     super();
@@ -88,8 +102,14 @@ public class Baie extends JPanel
     return gbc;
   }
 
-  public String toString()
+  public String getAllInfos()
   {
     return "Cette baie a "+Integer.toString(listeSwitch.size())+" switchs. Et voici les infos que nous avons : "+infos;
   }
+
+  public String toString()
+  {
+    return nom;
+  }
+
 }

@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import ihm.Fenetre;
 import ihm.Baie;
+import ihm.AjoutBaie;
 
 public class AjBaieListener implements MouseListener
 {
@@ -18,9 +19,7 @@ public class AjBaieListener implements MouseListener
   public void mouseClicked(MouseEvent event)
   {
     Fenetre f=(Fenetre)bouton.getTopLevelAncestor();
-    Baie b=new Baie();
-    f.changeBaie(b);
-    f.getListeChoix().addElement(b);
+    new AjoutBaie(f);
   }
 
   public void mouseEntered(MouseEvent event)

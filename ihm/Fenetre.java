@@ -71,6 +71,11 @@ public class Fenetre extends JFrame
     return baieActuelle;
   }
 
+  public ArrayList<Baie> getListeBaie()
+  {
+    return listeBaie;
+  }
+
   public void changeBaie(Baie nouvelleBaie)
   {
     this.baieActuelle=nouvelleBaie;

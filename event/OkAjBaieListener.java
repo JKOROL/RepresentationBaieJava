@@ -2,18 +2,31 @@ package event;
 
 import javax.swing.JDialog;
 import java.awt.event.*;
+import ihm.Baie;
+import ihm.AjoutBaie;
+import ihm.Fenetre;
 
-public class AnnulerListener implements MouseListener
+public class OkAjBaieListener implements MouseListener
 {
-  JDialog dial;
+  Fenetre f;
+  AjoutBaie dial;
 
-  public AnnulerListener(JDialog dial)
+  public OkAjBaieListener(AjoutBaie dial)
   {
     this.dial=dial;
+    f=this.dial.getFenetre();
   }
-  
+
   public void mouseClicked(MouseEvent event) 
   {
+    String nom =dial.getNom();
+    if(nom.equals(""))
+    {
+      nom="Pas de nom";
+    }
+    Baie b=new Baie(nom,dial.getInfos());
+    f.changeBaie(b);
+    f.getListeChoix().addElement(b);
     dial.dispose();
   }
 
