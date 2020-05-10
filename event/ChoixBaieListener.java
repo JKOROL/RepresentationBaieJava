@@ -23,7 +23,6 @@ public class ChoixBaieListener implements ActionListener
     Baie b1=f.getBaie();
     if(b!=b1)
     {
-      System.out.println("Différent");
       f.changeBaie(b);
     }
   }

@@ -19,6 +19,9 @@ public class Fenetre extends JFrame
   JScrollPane scrollPanel;
   JPanel menu;
   Baie baieActuelle;
+  JPanel arbrePanel;
+  Arbre arbre;
+  JScrollPane arbreScroll;
   public GridBagConstraints gbc;
   private DefaultComboBoxModel<Baie> listeChoix;
 
@@ -38,9 +41,10 @@ public class Fenetre extends JFrame
     //
     initMenu();
     //
-    JPanel arbrePanel=new JPanel();
-    arbrePanel.add(Arbre());
-    JScrollPane arbreScroll=new JScrollPane(arbrePanel);
+    arbrePanel=new JPanel();
+    arbre=new Arbre(this);
+    arbrePanel.add(arbre);
+    arbreScroll=new JScrollPane(arbrePanel);
     //
     scrollPanel=new JScrollPane(baieActuelle);
     //
@@ -89,31 +93,16 @@ public class Fenetre extends JFrame
     this.listeBaie.add(nouvelleBaie);
   }
 
-  public JTree Arbre(){
-    DefaultMutableTreeNode racine = new DefaultMutableTreeNode("Home");
-
-    for(int i = 1; i < 3; i++)
-    {
-      DefaultMutableTreeNode baie = new DefaultMutableTreeNode("Baie n°"+i);
-
-        for(int j = 1; j < 5; j++)
-        {
-          DefaultMutableTreeNode switcH = new DefaultMutableTreeNode("Switch n°" + j);
-          for(int k = 1; k < 5; k++)
-            switcH.add(new DefaultMutableTreeNode("Port n°" + k));
-          baie.add(switcH);
-        }
-      racine.add(baie);
-    }
-    JTree arbre = new JTree(racine);
-    arbre.setBackground(new Color(0,0,0,0));
-    arbre.setRootVisible(false);
-    return arbre;
-  }
-
   public DefaultComboBoxModel<Baie> getListeChoix()
   {
     return this.listeChoix;
+  }
+
+  public void majArbre()
+  {
+    arbreScroll.setViewportView(new JPanel());
+    arbre=new Arbre(this);
+    arbreScroll.setViewportView(arbre);
   }
 
   public String toString()

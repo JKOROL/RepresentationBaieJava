@@ -17,7 +17,7 @@ public class OkAjBaieListener implements MouseListener
     f=this.dial.getFenetre();
   }
 
-  public void mouseClicked(MouseEvent event) 
+  public void mouseClicked(MouseEvent event)
   {
     String nom =dial.getNom();
     if(nom.equals(""))
@@ -27,28 +27,30 @@ public class OkAjBaieListener implements MouseListener
     Baie b=new Baie(nom,dial.getInfos());
     f.changeBaie(b);
     f.getListeChoix().addElement(b);
+    f.ajouterBaie(b);
+    f.majArbre();
     dial.dispose();
   }
 
-  public void mouseEntered(MouseEvent event) 
+  public void mouseEntered(MouseEvent event)
   {
 
   }
 
   //Méthode appelée lorsque la souris sort de la zone du bouton
-  public void mouseExited(MouseEvent event) 
+  public void mouseExited(MouseEvent event)
   {
 
   }
 
   //Méthode appelée lorsque l'on presse le bouton gauche de la souris
-  public void mousePressed(MouseEvent event) 
+  public void mousePressed(MouseEvent event)
   {
 
   }
 
   //Méthode appelée lorsque l'on relâche le clic de souris
-  public void mouseReleased(MouseEvent event) 
+  public void mouseReleased(MouseEvent event)
   {
 
   }

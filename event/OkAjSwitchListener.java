@@ -14,7 +14,7 @@ public class OkAjSwitchListener implements MouseListener
   {
     this.dial=dial;
   }
-  public void mouseClicked(MouseEvent event) 
+  public void mouseClicked(MouseEvent event)
     {
       Fenetre fenetre=this.dial.getFenetre();
       fenetre.getBaie().getGbc().gridy++;
@@ -32,27 +32,28 @@ public class OkAjSwitchListener implements MouseListener
       fenetre.getBaie().getListeSwitch().add(s);
       fenetre.getBaie().add(s,fenetre.getBaie().getGbc());
       fenetre.getBaie().revalidate();
+      fenetre.majArbre();
       dial.dispose();
     }
-    public void mouseEntered(MouseEvent event) 
+    public void mouseEntered(MouseEvent event)
   {
 
   }
 
   //Méthode appelée lorsque la souris sort de la zone du bouton
-  public void mouseExited(MouseEvent event) 
+  public void mouseExited(MouseEvent event)
   {
 
   }
 
   //Méthode appelée lorsque l'on presse le bouton gauche de la souris
-  public void mousePressed(MouseEvent event) 
+  public void mousePressed(MouseEvent event)
   {
 
   }
 
   //Méthode appelée lorsque l'on relâche le clic de souris
-  public void mouseReleased(MouseEvent event) 
+  public void mouseReleased(MouseEvent event)
   {
 
   }
