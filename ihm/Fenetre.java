@@ -10,6 +10,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
+import event.ChoixBaieListener;
 
 public class Fenetre extends JFrame
 {
@@ -64,6 +65,7 @@ public class Fenetre extends JFrame
     menu.add(new JButton("Gerer Baie"));
     menu.add(new BoutonAjSwitch());
     menu.add(new JButton("Gerer Switch"));
+    choixBaie.addActionListener(new ChoixBaieListener(choixBaie,this));
   }
 
   public Baie getBaie()
