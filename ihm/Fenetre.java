@@ -2,12 +2,13 @@ package ihm;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.Color;
 import java.awt.Container;
-import javax.swing.*;
-import java.awt.*;
-import javax.swing.border.LineBorder;
-import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.JScrollPane;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+import java.awt.GridLayout;
+import java.awt.GridBagConstraints;
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import event.ChoixBaieListener;
@@ -68,7 +69,6 @@ public class Fenetre extends JFrame
     menu.add(new BoutonAjBaie());
     menu.add(new JButton("Gerer Baie"));
     menu.add(new BoutonAjSwitch());
-    menu.add(new JButton("Gerer Switch"));
     choixBaie.addActionListener(new ChoixBaieListener(choixBaie,this));
   }
 

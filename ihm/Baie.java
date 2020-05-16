@@ -72,6 +72,16 @@ public class Baie extends JPanel
     }
   }
 
+  public void refresh()
+  {
+    this.setLayout(new GridBagLayout());
+    gbc = new GridBagConstraints();
+    gbc.fill = GridBagConstraints.HORIZONTAL;
+    gbc.gridx = 1;
+    gbc.gridy = 0;
+    initSwitch();
+  }
+
   public void setListeSwitch(ArrayList<Switch> listeSwitch)
   {
     this.listeSwitch = listeSwitch;

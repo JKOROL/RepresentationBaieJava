@@ -6,26 +6,28 @@ import java.awt.Container;
 import javax.swing.JButton;
 import java.awt.event.*;
 import event.AnnulerListener;
-import event.OkAjSwitchListener;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
 import java.lang.Exception;
+import event.OkGSwitchListener;
 
-public class AjoutSwitch extends JDialog
+public class GestionSwitch extends JDialog
 {
+  private Switch s;
   private Fenetre fenetre;
   private JTextField infosField;
   private JTextField portsField;
   private JTextField ligneField;
   private JTextField nomField;
 
-  public AjoutSwitch(Fenetre fenetre)
+  public GestionSwitch(Switch s,Fenetre fenetre)
   {
-    super(fenetre,"Ajouter un switch",true);
-    this.setSize(400, 300);
+    super(fenetre,"Gestion Switch",true);
+    this.s=s;
     this.fenetre=fenetre;
+    this.setSize(400,300);
     this.setLocationRelativeTo(null);
     this.setResizable(false);
     init();
@@ -43,12 +45,14 @@ public class AjoutSwitch extends JDialog
   public JPanel panelBouton()
   {
     JPanel panel=new JPanel();
-    JButton okAjSwitch=new JButton("OK");
-    okAjSwitch.addMouseListener(new OkAjSwitchListener(this));
+    JButton okGSwitch=new JButton("OK");
+    okGSwitch.addMouseListener(new OkGSwitchListener(this));
     JButton annuler=new JButton("Annuler");
     annuler.addMouseListener(new AnnulerListener(this));
-    panel.add(okAjSwitch);
+    JButton supprimer=new JButton("Supprimer");
+    panel.add(okGSwitch);
     panel.add(annuler);
+    panel.add(supprimer);
     return panel;
   }
 
@@ -68,6 +72,7 @@ public class AjoutSwitch extends JDialog
     JPanel panel=new JPanel();
     panel.add(new JLabel("Nom : "));
     nomField=new JTextField(25);
+    nomField.setText(s.getNom());
     panel.add(nomField);
     return panel;
   }
@@ -77,6 +82,7 @@ public class AjoutSwitch extends JDialog
     JPanel panel=new JPanel();
     panel.add(new JLabel("Nombre de ports : "));
     portsField=new JTextField(4);
+    portsField.setText(this.s.getNbPorts().toString());
     panel.add(portsField);
     return panel;
   }
@@ -86,6 +92,7 @@ public class AjoutSwitch extends JDialog
     JPanel panel=new JPanel();
     panel.add(new JLabel("Nombre de ligne : "));
     ligneField=new JTextField(4);
+    ligneField.setText(this.s.getNbLignes().toString());
     panel.add(ligneField);
     return panel;
   }
@@ -95,37 +102,29 @@ public class AjoutSwitch extends JDialog
     JPanel panel=new JPanel();
     panel.add(new JLabel("Infos : "));
     infosField=new JTextField(25);
+    infosField.setText(this.s.getInfos());
     panel.add(infosField);
     return panel;
   }
-  
+
+  public Switch getSwitch()
+  {
+    return this.s;
+  }
+
   public Fenetre getFenetre()
   {
     return this.fenetre;
   }
 
-  public Integer getNbPorts()
+  public int getNbLignes()
   {
-    try
-    {
-      return new Integer(Integer.parseInt(portsField.getText()));
-    }
-    catch(Exception e)
-    {
-      return 8;
-    }
+    return Integer.parseInt(ligneField.getText());
   }
 
-  public Integer getNbLigne()
+  public int getNbPorts()
   {
-    try
-    {
-      return new Integer(Integer.parseInt(ligneField.getText()));
-    }
-    catch(Exception e)
-    {
-      return 1;
-    }
+    return Integer.parseInt(portsField.getText());
   }
 
   public String getNom()
@@ -137,5 +136,4 @@ public class AjoutSwitch extends JDialog
   {
     return infosField.getText();
   }
-
 }

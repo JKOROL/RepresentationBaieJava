@@ -7,15 +7,22 @@ import java.awt.Color;
 public class BoutonInfo extends JButton
 {
   ImageIcon info;
+  Switch s;
 
-  public BoutonInfo()
+  public BoutonInfo(Switch s)
   {
     super();
+    this.s=s;
     info=new ImageIcon("icon/info.png");
     this.setIcon(info);
     this.setBorderPainted(false);
     this.setFocusPainted(false);
     this.setBackground(new Color(0,0,0,0));
+  }
+
+  public Switch getSwitch()
+  {
+    return this.s;
   }
 
 }

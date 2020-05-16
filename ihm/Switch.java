@@ -3,18 +3,19 @@ package ihm;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 import java.awt.Color;
-import javax.swing.ImageIcon;
 import java.awt.BorderLayout;
 import javax.swing.border.LineBorder;
 import java.awt.GridLayout;
+import event.BoutonInfoListener;
 
 public class Switch extends JPanel
 {
-
+  private String nom;
   private int nbPorts;
   private int nbLignes;
   private ArrayList<Port> listePort;
   private String infos;
+  private BoutonInfo boutonInfo;
 
   public Switch()
   {
@@ -25,35 +26,43 @@ public class Switch extends JPanel
     this.infos = "Pas d'infos";
     this.setBorder(new LineBorder(Color.BLACK,3));
     this.setLayout(new BorderLayout());
-    this.add(new BoutonInfo(),BorderLayout.EAST);
+    boutonInfo=new BoutonInfo(this);
+    boutonInfo.addMouseListener(new BoutonInfoListener(boutonInfo));
+    this.add(boutonInfo,BorderLayout.EAST);
     initListePort(this.nbPorts);
     this.add(port(),BorderLayout.CENTER);
+    this.nom="Pas de nom";
   }
 
-  public Switch(int nbPorts,int nbLignes,ArrayList<Port> listePort,String infos)
+  public Switch(int nbPorts,int nbLignes,ArrayList<Port> listePort,String infos,String nom)
   {
     super();
     this.setBorder(new LineBorder(Color.BLACK,3));
     this.setLayout(new BorderLayout());
-    this.add(new BoutonInfo(),BorderLayout.EAST);
+    boutonInfo=new BoutonInfo(this);
+    boutonInfo.addMouseListener(new BoutonInfoListener(boutonInfo));
+    this.add(boutonInfo,BorderLayout.EAST);
     this.nbPorts = nbPorts;
     this.nbLignes = nbLignes;
     this.listePort = listePort;
     this.infos = infos;
-    initListePort(this.nbPorts);
     this.add(port(),BorderLayout.CENTER);
+    this.nom=nom;
   }
 
-  public Switch(int nbPorts,int nbLignes)
+  public Switch(int nbPorts,int nbLignes,String infos,String nom)
   {
     super();
     this.setBorder(new LineBorder(Color.BLACK,3));
     this.setLayout(new BorderLayout());
-    this.add(new BoutonInfo(),BorderLayout.EAST);
+    boutonInfo=new BoutonInfo(this);
+    boutonInfo.addMouseListener(new BoutonInfoListener(boutonInfo));
+    this.add(boutonInfo,BorderLayout.EAST);
     this.nbPorts = nbPorts;
     this.nbLignes = nbLignes;
     this.listePort = new ArrayList<Port>();
-    this.infos = "Pas d'infos";
+    this.infos = infos;
+    this.nom=nom;
     initListePort(this.nbPorts);
     this.add(port(),BorderLayout.CENTER);
   }
@@ -78,6 +87,10 @@ public class Switch extends JPanel
     return port;
   }
 
+  public void setNom(String nom)
+  {
+    this.nom=nom;
+  }
   public void setInfos(String infos)
   {
     this.infos=infos;
@@ -123,9 +136,18 @@ public class Switch extends JPanel
     return this.listePort.get(numero-1);
   }
 
-  public String toString()
+  public String getAllInfos()
   {
     return "Ce switch a "+Integer.toString(nbPorts)+" ports. Et voici les infos que nous avons : "+infos;
+  }
+  public String getNom()
+  {
+    return this.nom;
+  }
+
+  public String toString()
+  {
+    return this.nom;
   }
 
 }

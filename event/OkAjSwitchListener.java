@@ -28,7 +28,7 @@ public class OkAjSwitchListener implements MouseListener
       {
         fenetre.getBaie().getGbc().gridwidth=1;
       }
-      Switch s=new Switch(dial.getNbPorts(),dial.getNbLigne());
+      Switch s=new Switch(dial.getNbPorts(),dial.getNbLigne(),dial.getInfos(),dial.getNom());
       fenetre.getBaie().getListeSwitch().add(s);
       fenetre.getBaie().add(s,fenetre.getBaie().getGbc());
       fenetre.getBaie().revalidate();

@@ -2,10 +2,7 @@ package ihm;
 
 import erreur.PriseException;
 import javax.swing.JButton;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import event.PortListener;
 import java.awt.Color;
 
@@ -157,7 +154,7 @@ public class Port extends JButton
     }
   }
 
-  public String toString()
+  public String getAllInfos()
   {
     String s = "Ce port ";
     if(this.prise)
@@ -184,5 +181,10 @@ public class Port extends JButton
     }
     s = s + " Et voici les infos que nous avons : " + infos;
     return s;
+  }
+
+  public String toString()
+  {
+    return this.nom;
   }
 }
