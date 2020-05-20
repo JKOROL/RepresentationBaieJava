@@ -6,6 +6,14 @@ import javax.swing.JButton;
 import ihm.Fenetre;
 import ihm.AjoutSwitch;
 
+/**
+  *Classe qui gère le comportement du bouton Ajouter Switch de la fênetre principale.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+  
 public class AjSwitchListener implements MouseListener
 {
   JButton bouton;

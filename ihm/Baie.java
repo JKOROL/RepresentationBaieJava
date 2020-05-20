@@ -5,6 +5,14 @@ import javax.swing.JPanel;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
+/**
+  *Classe qui gère l'affichage graphique de chaque Baie ainsi que ses données.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+
 public class Baie extends JPanel
 {
   private ArrayList<Switch> listeSwitch;

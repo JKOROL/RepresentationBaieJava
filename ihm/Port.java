@@ -6,6 +6,14 @@ import javax.swing.ImageIcon;
 import event.PortListener;
 import java.awt.Color;
 
+/**
+  *Classe qui gère l'affichage graphique d'un port ainsi que ses données. 
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+
 public class Port extends JButton
 {
   private String infos;

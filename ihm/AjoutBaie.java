@@ -11,6 +11,14 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
 
+/**
+  *Classe qui gère l'interface utilisateur pour ajouter une Baie.
+  *@see Baie
+  *
+  *
+  *@author J.KOROL
+  */
+  
 public class AjoutBaie extends JDialog
 {
   private Fenetre fenetre;

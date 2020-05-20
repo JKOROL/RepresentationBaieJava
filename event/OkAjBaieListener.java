@@ -6,6 +6,14 @@ import ihm.Baie;
 import ihm.AjoutBaie;
 import ihm.Fenetre;
 
+/**
+  *Classe qui gère le comportement du bouton OK lors de l'ajout d'une Baie.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+  
 public class OkAjBaieListener implements MouseListener
 {
   Fenetre f;

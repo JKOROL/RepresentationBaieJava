@@ -6,6 +6,14 @@ import ihm.BoutonInfo;
 import ihm.GestionSwitch;
 import ihm.Fenetre;
 
+/**
+  *Classe qui gère le comportement de chaque bouton Info.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+  
 public class BoutonInfoListener implements MouseListener
 {
   private BoutonInfo info;

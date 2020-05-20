@@ -7,6 +7,14 @@ import ihm.Fenetre;
 import ihm.Baie;
 import ihm.AjoutBaie;
 
+/**
+  *Classe qui gère le comportement du bouton Ajouter Baie du la fenêtre principale.
+  *@see ihm.BoutonAjBaie
+  *
+  *
+  *@author J.KOROL
+  */
+
 public class AjBaieListener implements MouseListener
 {
   JButton bouton;

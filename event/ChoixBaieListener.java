@@ -6,6 +6,14 @@ import java.awt.event.ActionListener;
 import ihm.Baie;
 import ihm.Fenetre;
 
+/**
+  *Classe qui gère le comportement du menu déroulant permettant de choisir quel Baie afficher.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+  
 public class ChoixBaieListener implements ActionListener
 {
   private JComboBox choixBaie;

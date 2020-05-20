@@ -13,6 +13,14 @@ import java.awt.GridLayout;
 import java.lang.Exception;
 import event.OkGSwitchListener;
 
+/**
+  *Classe qui gère l'interface utilisateur lors de la gestion d'un Switch.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+  
 public class GestionSwitch extends JDialog
 {
   private Switch s;

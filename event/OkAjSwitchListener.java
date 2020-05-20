@@ -6,6 +6,14 @@ import ihm.AjoutSwitch;
 import ihm.Fenetre;
 import ihm.Switch;
 
+/**
+  *Classe qui gère le comportement du bouton OK lors de l'ajout d'un Switch.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+  
 public class OkAjSwitchListener implements MouseListener
 {
   AjoutSwitch dial;

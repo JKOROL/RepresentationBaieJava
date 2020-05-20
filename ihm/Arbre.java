@@ -6,6 +6,14 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import java.awt.Color;
 
+/**
+  *Classe qui gère la construction de l'arborescence sur la première 
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+
 public class Arbre extends JTree
 {
   private Fenetre f;

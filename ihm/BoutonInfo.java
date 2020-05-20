@@ -4,6 +4,14 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 
+/**
+  *Classe qui gère le bouton info pour chacun des Switch.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+  
 public class BoutonInfo extends JButton
 {
   ImageIcon info;

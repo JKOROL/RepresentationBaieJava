@@ -13,6 +13,14 @@ import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import event.ChoixBaieListener;
 
+/**
+  *Classe qui gère l'apparence de la fenêtre principale.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+
 public class Fenetre extends JFrame
 {
   ArrayList<Baie> listeBaie;

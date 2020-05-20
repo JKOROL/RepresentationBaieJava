@@ -3,6 +3,14 @@ package event;
 import javax.swing.JDialog;
 import java.awt.event.*;
 
+/**
+  * Classe qui gère le comportement des boutons Annuler.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+  
 public class AnnulerListener implements MouseListener
 {
   JDialog dial;

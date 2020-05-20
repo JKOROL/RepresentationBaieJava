@@ -13,6 +13,14 @@ import javax.swing.JLabel;
 import java.awt.GridLayout;
 import java.lang.Exception;
 
+/**
+  *Classe qui gère l'interface utilisateur pour ajouter un Switch.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+
 public class AjoutSwitch extends JDialog
 {
   private Fenetre fenetre;

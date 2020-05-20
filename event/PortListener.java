@@ -5,6 +5,14 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+/**
+  *Classe qui gère le comportement de chaque bouton représentant un port.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+  
 public class PortListener implements MouseListener
 {
   private JButton port;

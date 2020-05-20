@@ -8,6 +8,14 @@ import javax.swing.border.LineBorder;
 import java.awt.GridLayout;
 import event.BoutonInfoListener;
 
+/**
+  *Classe qui gère l'affichage graphique d'un switch ainsi que ses données.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
+  
 public class Switch extends JPanel
 {
   private String nom;

@@ -5,7 +5,13 @@ import java.awt.event.MouseListener;
 import ihm.GestionSwitch;
 import ihm.Switch;
 
-
+/**
+  *Classe qui gère le comportement du bouton OK lors de la modification d'un Switch.
+  *
+  *
+  *
+  *@author J.KOROL
+  */
 
 public class OkGSwitchListener implements MouseListener
 {
