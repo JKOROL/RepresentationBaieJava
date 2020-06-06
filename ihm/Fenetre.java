@@ -23,15 +23,68 @@ import event.ChoixBaieListener;
 
 public class Fenetre extends JFrame
 {
-  ArrayList<Baie> listeBaie;
-  Container cont;
-  JScrollPane scrollPanel;
-  JPanel menu;
-  Baie baieActuelle;
-  JPanel arbrePanel;
-  Arbre arbre;
-  JScrollPane arbreScroll;
-  public GridBagConstraints gbc;
+
+  /**
+    *La liste des baies de l'application
+    *
+    *@see Baie
+    */
+  private ArrayList<Baie> listeBaie;
+
+  /**
+    *Le Container principal de l'application.
+    *
+    *
+    */
+  private Container cont;
+
+  /**
+    *Le ScrollPane qui affiche la Baie choisie.
+    *
+    *@see Baie
+    */
+  private JScrollPane scrollPanel;
+
+  /**
+    *Le Panel qui contient tout le menu.
+    *
+    *
+    */
+  private JPanel menu;
+
+  /**
+    *La Baie choisie par l'utilisateur à afficher dans le scrollPanel.
+    *
+    *@see Baie
+    */
+  private Baie baieActuelle;
+
+  /**
+    *Le Panel qui contient l'arborescence des Baies.
+    *
+    *@see Arbre
+    */
+  private JPanel arbrePanel;
+
+  /**
+    *L'arborescence des Baies.
+    *
+    *@see Arbre
+    */
+  private Arbre arbre;
+
+  /**
+    *Le ScrollPane affichant l'arborescence des Baies.
+    *
+    *@see Arbre
+    */
+  private JScrollPane arbreScroll;
+
+  /**
+    *Le menu déroulant permettant de choisir quelle Baie afficher.
+    *
+    *@see Baie
+    */
   private DefaultComboBoxModel<Baie> listeChoix;
 
   public Fenetre()
@@ -43,20 +96,15 @@ public class Fenetre extends JFrame
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     cont= this.getContentPane();
     cont.setLayout(new BorderLayout());
-    //
-    listeBaie=new ArrayList<Baie>();
-    baieActuelle= new Baie();
-    listeBaie.add(baieActuelle);
-    //
+    //Initialisation des Baies.
+    initBaie();
+    //Initialisation du Menu.
     initMenu();
-    //
-    arbrePanel=new JPanel();
-    arbre=new Arbre(this);
-    arbrePanel.add(arbre);
-    arbreScroll=new JScrollPane(arbrePanel);
-    //
+    //Initialisation de l'arborescence.
+    initArbre();
+    //Initialisation de la vue sur la Baie choisie.
     scrollPanel=new JScrollPane(baieActuelle);
-    //
+    //Ajout des divers élements au container principal.
     cont.add(menu,BorderLayout.NORTH);
     cont.add(scrollPanel,BorderLayout.CENTER);
     cont.add(arbreScroll,BorderLayout.WEST);
@@ -78,6 +126,21 @@ public class Fenetre extends JFrame
     menu.add(new JButton("Gerer Baie"));
     menu.add(new BoutonAjSwitch());
     choixBaie.addActionListener(new ChoixBaieListener(choixBaie,this));
+  }
+
+  public void initArbre()
+  {
+    arbrePanel=new JPanel();
+    arbre=new Arbre(this);
+    arbrePanel.add(arbre);
+    arbreScroll=new JScrollPane(arbrePanel);
+  }
+
+  public void initBaie()
+  {
+    listeBaie=new ArrayList<Baie>();
+    baieActuelle= new Baie();
+    listeBaie.add(baieActuelle);
   }
 
   public Baie getBaie()

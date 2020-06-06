@@ -16,7 +16,19 @@ import java.awt.Color;
 
 public class Arbre extends JTree
 {
+
+  /**
+    *La fenêtre pricipale de l'application.
+    *
+    *@see Fenetre
+    */
   private Fenetre f;
+
+  /**
+    *Base de l'arborscence, non visible par défaut. 
+    *
+    *
+    */
   DefaultMutableTreeNode racine;
 
   public Arbre(Fenetre f)

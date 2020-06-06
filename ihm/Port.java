@@ -16,10 +16,39 @@ import java.awt.Color;
 
 public class Port extends JButton
 {
+  /**
+    *Toutes les infos complémentaires sur le Port.
+    *
+    *
+    */
   private String infos;
+
+  /**
+    *Boolean répresentant si le port a quelque chose de branché ou non.
+    *
+    *
+    */
   private boolean branche;
+
+  /**
+    *Boolean répresentant si le port a une prise ou non.
+    *
+    *
+    */
   private boolean prise;
+
+  /**
+    *Boolean répresentant si le port est relié à un doubleur ou non.
+    *
+    *
+    */
   private boolean doubleur;
+
+  /**
+    *Le nom du Port.
+    *
+    *
+    */
   private String nom;
 
   public Port()

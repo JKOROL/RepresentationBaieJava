@@ -14,7 +14,19 @@ import java.awt.Color;
   
 public class BoutonInfo extends JButton
 {
+
+  /**
+    *L'icone représentant le bouton info
+    *
+    *
+    */
   ImageIcon info;
+
+  /**
+    *Le Switch associé au bouton
+    *
+    *@see Switch
+    */
   Switch s;
 
   public BoutonInfo(Switch s)

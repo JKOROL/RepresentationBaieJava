@@ -18,11 +18,46 @@ import event.BoutonInfoListener;
   
 public class Switch extends JPanel
 {
+  /**
+    *Le nom du Switch.
+    *
+    *
+    */
   private String nom;
+
+  /**
+    *Le nombre de ports que le Switch possède.
+    *
+    *
+    */
   private int nbPorts;
+
+  /**
+    *Le nombre de lignes sur lesquelles sont organisés les ports.
+    *
+    *@see Port
+    */
   private int nbLignes;
+
+  /**
+    *La liste de tout les ports du Switch.
+    *
+    *@see Port
+    */
   private ArrayList<Port> listePort;
+
+  /**
+    *Toutes les infos complémentaires sur le Switch.
+    *
+    *
+    */
   private String infos;
+
+  /**
+    *@see BoutonInfo
+    *
+    *
+    */
   private BoutonInfo boutonInfo;
 
   public Switch()

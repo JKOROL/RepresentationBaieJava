@@ -23,10 +23,40 @@ import java.lang.Exception;
 
 public class AjoutSwitch extends JDialog
 {
+
+  /**
+    *La fenêtre principale de l'application.
+    *
+    *@see Fenetre
+    */
   private Fenetre fenetre;
+
+  /**
+    *Zone de texte pour les infos.
+    *
+    *
+    */
   private JTextField infosField;
+
+  /**
+    *Zone de texte pour le nombre de ports.
+    *
+    *
+    */
   private JTextField portsField;
+
+  /**
+    *Zone de texte pour le nombre de lignes.
+    *
+    *
+    */
   private JTextField ligneField;
+
+  /**
+    *Zone de texte pour le nom du Switch.
+    *
+    *@see Switch
+    */
   private JTextField nomField;
 
   public AjoutSwitch(Fenetre fenetre)

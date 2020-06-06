@@ -23,11 +23,47 @@ import event.OkGSwitchListener;
   
 public class GestionSwitch extends JDialog
 {
+
+  /**
+    *Le Switch sur lequel la boite de dialogue peut effectuer des modifications.
+    *
+    *@see Switch
+    */
   private Switch s;
+
+  /**
+    *La fênetre principale de l'application.
+    *
+    *@see Fenetre
+    */
   private Fenetre fenetre;
+
+  /**
+    *La zone de texte où sont situés les infos sur le Switch.
+    *
+    *
+    */
   private JTextField infosField;
+
+  /**
+    *La zone de texte où est situé le nombre de ports sur le Switch.
+    *
+    *@see Switch
+    */
   private JTextField portsField;
+
+  /**
+    *La zone de texte où est situé le nombre de lignes sur le Switch.
+    *
+    *@see Switch
+    */
   private JTextField ligneField;
+
+  /**
+    *La zone de texte où est situé le nom du Switch.
+    *
+    *@see Switch
+    */
   private JTextField nomField;
 
   public GestionSwitch(Switch s,Fenetre fenetre)

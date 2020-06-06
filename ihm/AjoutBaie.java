@@ -21,8 +21,26 @@ import java.awt.GridLayout;
   
 public class AjoutBaie extends JDialog
 {
+
+  /**
+    *La fenêtre pricipale de l'application 
+    *
+    *@see Fenetre
+    */
   private Fenetre fenetre;
+
+  /**
+    *Zone de texte pour les infos
+    *
+    *
+    */
   private JTextField infosField;
+
+  /**
+    *Zone de texte pour le nom
+    *
+    *
+    */
   private JTextField nomField;
 
   public AjoutBaie(Fenetre fenetre)

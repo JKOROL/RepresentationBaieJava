@@ -15,9 +15,28 @@ import java.awt.GridBagLayout;
 
 public class Baie extends JPanel
 {
+
+  /**
+    *La liste des Switch contenu dans la Baie.
+    *
+    *@see Switch
+    */
   private ArrayList<Switch> listeSwitch;
+
+  /**
+    *Toutes les informations complémentaires sur la Baie.
+    *
+    *
+    */
   private String infos;
+
   private GridBagConstraints gbc;
+
+  /**
+    *Le nom de la Baie.
+    *
+    *
+    */
   private String nom;
 
   public Baie()
