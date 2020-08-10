@@ -4,6 +4,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import ihm.GestionPort;
+import ihm.Fenetre;
+import ihm.Port;
 
 /**
   *Classe qui gère le comportement de chaque bouton représentant un port.
@@ -15,18 +18,16 @@ import javax.swing.JOptionPane;
   
 public class PortListener implements MouseListener
 {
-  private JButton port;
-  private JOptionPane nonDev;
+  private Port port;
 
-  public PortListener(JButton port)
+  public PortListener(Port port)
   {
     this.port=port;
-    nonDev=new JOptionPane();
   }
 
   public void mouseClicked(MouseEvent event) 
   {
-    nonDev.showMessageDialog(null,"Fonctionnalité non implémenté.","Erreur",JOptionPane.ERROR_MESSAGE);
+    new GestionPort(port,(Fenetre)port.getTopLevelAncestor());
   }
 
   public void mouseEntered(MouseEvent event) 

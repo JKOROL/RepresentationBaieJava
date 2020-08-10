@@ -89,14 +89,19 @@ public class GestionSwitch extends JDialog
   public JPanel panelBouton()
   {
     JPanel panel=new JPanel();
+    panel.setLayout(new BorderLayout());
     JButton okGSwitch=new JButton("OK");
     okGSwitch.addMouseListener(new OkGSwitchListener(this));
     JButton annuler=new JButton("Annuler");
     annuler.addMouseListener(new AnnulerListener(this));
     JButton supprimer=new JButton("Supprimer");
-    panel.add(okGSwitch);
-    panel.add(annuler);
-    panel.add(supprimer);
+    JPanel panelOkAnnuler=new JPanel();
+    JPanel panelSupprimer=new JPanel();
+    panelOkAnnuler.add(okGSwitch);
+    panelOkAnnuler.add(annuler);
+    panelSupprimer.add(supprimer);
+    panel.add(panelOkAnnuler,BorderLayout.WEST);
+    panel.add(panelSupprimer,BorderLayout.EAST);
     return panel;
   }
 

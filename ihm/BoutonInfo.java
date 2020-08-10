@@ -37,6 +37,7 @@ public class BoutonInfo extends JButton
     this.setIcon(info);
     this.setBorderPainted(false);
     this.setFocusPainted(false);
+    this.setContentAreaFilled(false);
     this.setBackground(new Color(0,0,0,0));
   }
 

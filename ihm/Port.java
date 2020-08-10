@@ -63,6 +63,7 @@ public class Port extends JButton
     this.addMouseListener(new PortListener(this));
     this.setBorderPainted(false);
     this.setFocusPainted(false);
+    this.setContentAreaFilled(false);
     this.setBackground(new Color(0,0,0,0));
   }
 
@@ -78,6 +79,7 @@ public class Port extends JButton
     this.addMouseListener(new PortListener(this));
     this.setBorderPainted(false);
     this.setFocusPainted(false);
+    this.setContentAreaFilled(false);
     this.setBackground(new Color(0,0,0,0));
   }
 
@@ -116,53 +118,19 @@ public class Port extends JButton
     this.infos = infos;
   }
 
-  public void setBranche() throws PriseException
+  public void setBranche(Boolean etat)
   {
-    if(this.prise)
-    {
-      this.branche = !this.branche;
-    }
-    else
-    {
-      System.out.println("Il n'y a pas de prise, impossible de brancher.");
-      throw new PriseException();
-    }
+    this.branche=etat;
   }
 
-  public void setPrise()
+  public void setPrise(Boolean etat)
   {
-    if(this.prise)
-    {
-      this.prise = false;
-      this.branche = false;
-      this.doubleur = false;
-    }
-    else
-    {
-      this.prise = true;
-    }
+    this.prise=etat;
   }
   
-  public void setDoubleur() throws PriseException
+  public void setDoubleur(Boolean etat)
   {
-    if(this.prise)
-    {
-      if(this.doubleur)
-      {
-        this.doubleur = false;
-        this.branche = false;
-      }
-      else
-      {
-        this.doubleur = true;
-        this.branche = true;
-      }
-    }
-    else
-    {
-      System.out.println("Il n'y a pas de prise, impossible de brancher.");
-      throw new PriseException();
-    }
+    this.doubleur=etat;
   }
 
   public void majIcone()
