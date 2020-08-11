@@ -22,7 +22,7 @@ public class OkGSwitchListener implements MouseListener
     this.gs=gs;
   }
 
-  public void mouseClicked(MouseEvent event) 
+  public void mouseClicked(MouseEvent event)
   {
     Switch s=gs.getSwitch();
     String newNom = gs.getNom();
@@ -35,28 +35,29 @@ public class OkGSwitchListener implements MouseListener
     s.setNbPorts(port);
     gs.getFenetre().getBaie().refresh();
     gs.getFenetre().changeBaie(gs.getFenetre().getBaie());
+    gs.getFenetre().majArbre();
     gs.dispose();
   }
 
-  public void mouseEntered(MouseEvent event) 
+  public void mouseEntered(MouseEvent event)
   {
 
   }
 
   //Méthode appelée lorsque la souris sort de la zone du bouton
-  public void mouseExited(MouseEvent event) 
+  public void mouseExited(MouseEvent event)
   {
 
   }
 
   //Méthode appelée lorsque l'on presse le bouton gauche de la souris
-  public void mousePressed(MouseEvent event) 
+  public void mousePressed(MouseEvent event)
   {
 
   }
 
   //Méthode appelée lorsque l'on relâche le clic de souris
-  public void mouseReleased(MouseEvent event) 
+  public void mouseReleased(MouseEvent event)
   {
 
   }

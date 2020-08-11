@@ -171,9 +171,11 @@ public class Fenetre extends JFrame
 
   public void majArbre()
   {
-    arbreScroll.setViewportView(new JPanel());
     arbre=new Arbre(this);
-    arbreScroll.setViewportView(arbre);
+    arbrePanel=new JPanel();
+    arbrePanel.add(arbre);
+    arbreScroll.setViewportView(arbrePanel);
+
   }
 
   public String toString()

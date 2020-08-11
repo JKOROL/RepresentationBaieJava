@@ -7,7 +7,7 @@ import javax.swing.tree.DefaultTreeModel;
 import java.awt.Color;
 
 /**
-  *Classe qui gère la construction de l'arborescence sur la première 
+  *Classe qui gère la construction de l'arborescence sur la première
   *
   *
   *
@@ -25,7 +25,7 @@ public class Arbre extends JTree
   private Fenetre f;
 
   /**
-    *Base de l'arborscence, non visible par défaut. 
+    *Base de l'arborscence, non visible par défaut.
     *
     *
     */
@@ -54,7 +54,6 @@ public class Arbre extends JTree
     }
     DefaultTreeModel model = new DefaultTreeModel(racine);
     this.setModel(model);
-    this.setBackground(new Color(0,0,0,0));
     this.setRootVisible(false);
   }
 }

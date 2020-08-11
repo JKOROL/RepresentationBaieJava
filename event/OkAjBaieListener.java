@@ -13,7 +13,7 @@ import ihm.Fenetre;
   *
   *@author J.KOROL
   */
-  
+
 public class OkAjBaieListener implements MouseListener
 {
   Fenetre f;
@@ -22,7 +22,7 @@ public class OkAjBaieListener implements MouseListener
   public OkAjBaieListener(AjoutBaie dial)
   {
     this.dial=dial;
-    f=this.dial.getFenetre();
+    this.f=this.dial.getFenetre();
   }
 
   public void mouseClicked(MouseEvent event)

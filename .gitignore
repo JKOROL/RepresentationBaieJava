@@ -3,3 +3,4 @@ nohup.out
 .replit
 *.log
 doc/
+bin/
