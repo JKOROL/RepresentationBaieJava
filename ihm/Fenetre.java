@@ -81,11 +81,18 @@ public class Fenetre extends JFrame
   private JScrollPane arbreScroll;
 
   /**
-    *Le menu déroulant permettant de choisir quelle Baie afficher.
+    *La liste d'objet du menu déroulant permettant de choisir quelle Baie afficher.
     *
     *@see Baie
     */
   private DefaultComboBoxModel<Baie> listeChoix;
+
+  /**
+    *Le menu déroulant permettant de choisir quelle Baie afficher.
+    *
+    *@see Baie
+    */
+  private JComboBox choixBaie;
 
   public Fenetre()
   {
@@ -113,8 +120,8 @@ public class Fenetre extends JFrame
 
   public void initMenu()
   {
-    JComboBox choixBaie= new JComboBox();
-    listeChoix=(DefaultComboBoxModel<Baie>)choixBaie.getModel();
+    this.choixBaie= new JComboBox();
+    this.listeChoix=(DefaultComboBoxModel<Baie>)choixBaie.getModel();
     for(Baie b:listeBaie)
     {
       listeChoix.addElement(b);
