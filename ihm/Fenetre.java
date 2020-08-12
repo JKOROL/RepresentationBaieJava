@@ -176,6 +176,11 @@ public class Fenetre extends JFrame
     return this.listeChoix;
   }
 
+  public JComboBox getChoixBaie()
+  {
+    return this.choixBaie;
+  }
+
   public void majArbre()
   {
     arbre=new Arbre(this);

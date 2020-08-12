@@ -37,6 +37,7 @@ public class OkAjBaieListener implements MouseListener
     f.getListeChoix().addElement(b);
     f.ajouterBaie(b);
     f.majArbre();
+    f.getChoixBaie().setSelectedItem(b);
     dial.dispose();
   }
 
