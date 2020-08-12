@@ -15,7 +15,7 @@ import event.BoutonInfoListener;
   *
   *@author J.KOROL
   */
-  
+
 public class Switch extends JPanel
 {
   /**
@@ -60,6 +60,8 @@ public class Switch extends JPanel
     */
   private BoutonInfo boutonInfo;
 
+  private JPanel panelPort;
+
   public Switch()
   {
     super();
@@ -73,7 +75,8 @@ public class Switch extends JPanel
     boutonInfo.addMouseListener(new BoutonInfoListener(boutonInfo));
     this.add(boutonInfo,BorderLayout.EAST);
     initListePort(this.nbPorts);
-    this.add(port(),BorderLayout.CENTER);
+    this.panelPort=port();
+    this.add(this.panelPort,BorderLayout.CENTER);
     this.nom="Pas de nom";
   }
 
@@ -89,7 +92,8 @@ public class Switch extends JPanel
     this.nbLignes = nbLignes;
     this.listePort = listePort;
     this.infos = infos;
-    this.add(port(),BorderLayout.CENTER);
+    this.panelPort=port();
+    this.add(this.panelPort,BorderLayout.CENTER);
     this.nom=nom;
   }
 
@@ -107,7 +111,8 @@ public class Switch extends JPanel
     this.infos = infos;
     this.nom=nom;
     initListePort(this.nbPorts);
-    this.add(port(),BorderLayout.CENTER);
+    this.panelPort=port();
+    this.add(this.panelPort,BorderLayout.CENTER);
   }
 
   public void initListePort(int nbPort)
@@ -146,7 +151,37 @@ public class Switch extends JPanel
 
   public void setNbPorts(int nbPorts)
   {
+    int oldNbPorts=this.nbPorts;
     this.nbPorts = nbPorts;
+
+    if(oldNbPorts!=nbPorts)
+    {
+      if(oldNbPorts>nbPorts)
+      {
+        int nbRemove=oldNbPorts-nbPorts;
+        while(nbRemove>0)
+        {
+          this.listePort.remove(this.listePort.size()-1);
+          nbRemove--;
+        }
+      }
+      else
+      {
+        int nbAjout=nbPorts-oldNbPorts;
+        while(nbAjout>0)
+        {
+          this.listePort.add(new Port());
+          nbAjout--;
+        }
+      }
+    }
+  }
+
+  public void refresh()
+  {
+    this.remove(this.panelPort);
+    this.panelPort=port();
+    this.add(this.panelPort,BorderLayout.CENTER);
   }
 
   public void setListePort(ArrayList<Port> listePort)

@@ -33,6 +33,7 @@ public class OkGSwitchListener implements MouseListener
     s.setInfos(infos);
     s.setNbLignes(ligne);
     s.setNbPorts(port);
+    s.refresh();
     gs.getFenetre().getBaie().refresh();
     gs.getFenetre().changeBaie(gs.getFenetre().getBaie());
     gs.getFenetre().majArbre();
