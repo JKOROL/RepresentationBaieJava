@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import java.awt.GridLayout;
 import java.lang.Exception;
 import event.OkGSwitchListener;
+import event.SupprimerListener;
+import interfaces.GetObjet;
 
 /**
   *Classe qui gère l'interface utilisateur lors de la gestion d'un Switch.
@@ -20,8 +22,8 @@ import event.OkGSwitchListener;
   *
   *@author J.KOROL
   */
-  
-public class GestionSwitch extends JDialog
+
+public class GestionSwitch extends JDialog implements GetObjet
 {
 
   /**
@@ -95,6 +97,7 @@ public class GestionSwitch extends JDialog
     JButton annuler=new JButton("Annuler");
     annuler.addMouseListener(new AnnulerListener(this));
     JButton supprimer=new JButton("Supprimer");
+    supprimer.addMouseListener(new SupprimerListener(this));
     JPanel panelOkAnnuler=new JPanel();
     JPanel panelSupprimer=new JPanel();
     panelOkAnnuler.add(okGSwitch);
@@ -184,5 +187,10 @@ public class GestionSwitch extends JDialog
   public String getInfos()
   {
     return infosField.getText();
+  }
+
+  public Switch getObj()
+  {
+    return this.s;
   }
 }

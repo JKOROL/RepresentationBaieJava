@@ -36,6 +36,8 @@ public class OkGBaieListener implements MouseListener
     }
     baie.setNom(nom);
     baie.setInfos(dial.getInfos());
+    f.getListeChoix().removeElement(baie);
+    f.getListeChoix().addElement(baie);
     f.changeBaie(baie);
     f.majArbre();
     f.getChoixBaie().setSelectedItem(baie);

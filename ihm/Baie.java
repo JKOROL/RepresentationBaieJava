@@ -101,6 +101,7 @@ public class Baie extends JPanel
 
   public void refresh()
   {
+    this.removeAll();
     this.setLayout(new GridBagLayout());
     gbc = new GridBagConstraints();
     gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -118,7 +119,7 @@ public class Baie extends JPanel
   {
     this.infos = infos;
   }
-  
+
   public void setNom(String nom)
   {
     this.nom=nom;

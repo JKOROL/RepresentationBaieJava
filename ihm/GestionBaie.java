@@ -10,6 +10,8 @@ import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
+import event.SupprimerListener;
+import interfaces.GetObjet;
 
 /**
   *Classe qui gère l'interface utilisateur pour gerer une Baie.
@@ -19,7 +21,7 @@ import java.awt.GridLayout;
   *@author J.KOROL
   */
 
-public class GestionBaie extends JDialog
+public class GestionBaie extends JDialog implements GetObjet
 {
 
   /**
@@ -79,6 +81,7 @@ public class GestionBaie extends JDialog
     JButton annuler=new JButton("Annuler");
     annuler.addMouseListener(new AnnulerListener(this));
     JButton supprimer=new JButton("Supprimer");
+    supprimer.addMouseListener(new SupprimerListener(this));
     JPanel panelOkAnnuler=new JPanel();
     JPanel panelSupprimer=new JPanel();
     panelOkAnnuler.add(okGBaie);
@@ -132,6 +135,10 @@ public class GestionBaie extends JDialog
     return fenetre;
   }
   public Baie getBaie()
+  {
+    return this.baie;
+  }
+  public Baie getObj()
   {
     return this.baie;
   }
