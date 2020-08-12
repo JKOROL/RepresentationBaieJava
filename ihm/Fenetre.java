@@ -123,7 +123,7 @@ public class Fenetre extends JFrame
     menu.setLayout(new GridLayout(1,0,4,5));
     menu.add(choixBaie);
     menu.add(new BoutonAjBaie());
-    menu.add(new JButton("Gerer Baie"));
+    menu.add(new BoutonGererBaie());
     menu.add(new BoutonAjSwitch());
     choixBaie.addActionListener(new ChoixBaieListener(choixBaie,this));
   }

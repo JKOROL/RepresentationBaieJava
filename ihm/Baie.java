@@ -118,6 +118,11 @@ public class Baie extends JPanel
   {
     this.infos = infos;
   }
+  
+  public void setNom(String nom)
+  {
+    this.nom=nom;
+  }
 
   public ArrayList<Switch> getListeSwitch()
   {
